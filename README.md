@@ -1,36 +1,163 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nanda Kumar — Developer Portfolio
+
+A modern, premium developer portfolio built with Next.js 15, React 19, TypeScript, Tailwind CSS 4, and Framer Motion. Designed with a dark aesthetic inspired by Vercel, Linear, and Stripe.
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-purple?logo=framer)
+
+## Features
+
+- **Premium Dark Theme** — Pure black background with electric blue and purple accents
+- **Glassmorphism UI** — Cards with backdrop blur, subtle borders, and glow effects
+- **Smooth Animations** — Framer Motion powered scroll reveals, stagger effects, and micro-interactions
+- **Mobile-First Responsive** — Optimized for all screen sizes from 375px to ultrawide
+- **SEO Optimized** — Meta tags, Open Graph, Twitter Cards, sitemap, robots.txt
+- **Accessible** — ARIA labels, keyboard navigation, focus indicators, semantic HTML
+- **Performance** — Lazy-loaded sections, optimized imports, sub-second LCP
+- **Smart Navbar** — Hides on scroll down, shows on scroll up, transparent to glass transition
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS 4 |
+| Animations | Framer Motion 12 |
+| Icons | Lucide React + Custom SVGs |
+| Deployment | Vercel |
+
+## Project Structure
+
+```
+src/
+├── app/              # Next.js App Router (layout, page, globals, sitemap)
+├── components/
+│   ├── icons/        # Custom SVG brand icons (GitHub, LinkedIn)
+│   ├── layout/       # Navbar, Footer, ScrollProgress, CustomCursor, LoadingScreen
+│   ├── sections/     # Hero, About, Skills, Experience, Projects, GitHub, Contact
+│   └── ui/           # Reusable: Button, Card, Badge, Container, Section, SectionHeading
+├── hooks/            # useActiveSection, useMediaQuery, useScrollProgress
+├── lib/              # constants, utils, fonts, animations
+└── types/            # TypeScript interfaces
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.17 or later
+- npm, yarn, or pnpm
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/nandakumar/portfolio.git
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Copy environment variables
+cp .env.example .env.local
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server with hot reload |
+| `npm run build` | Create optimized production build |
+| `npm run start` | Serve the production build locally |
+| `npm run lint` | Run ESLint for code quality |
+| `npm run lint:fix` | Auto-fix linting issues |
+| `npm run type-check` | Run TypeScript compiler check |
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+### Deploy to Vercel (Recommended)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push your code to a GitHub repository
+2. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+3. Click "New Project" → Import your repository
+4. Configure:
+   - **Framework Preset:** Next.js (auto-detected)
+   - **Root Directory:** `./` (or `portfolio/` if nested)
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `.next`
+5. Add environment variables from `.env.example`
+6. Click "Deploy"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Your site will be live at `your-project.vercel.app`. Add a custom domain in Project Settings → Domains.
 
-## Deploy on Vercel
+### Deploy via Vercel CLI
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Install Vercel CLI
+npm i -g vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Deploy
+vercel
+
+# Deploy to production
+vercel --prod
+```
+
+### Deploy to GitHub Pages (Alternative)
+
+1. Update `next.config.ts`:
+   ```ts
+   output: "export",
+   basePath: "/portfolio",
+   ```
+2. Run `npm run build`
+3. Push the `out/` folder to the `gh-pages` branch
+
+## Environment Variables
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `NEXT_PUBLIC_SITE_URL` | Yes | Your production URL (for SEO) |
+| `NEXT_PUBLIC_GITHUB_USERNAME` | No | GitHub username for stats |
+| `GITHUB_TOKEN` | No | GitHub personal access token |
+| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | No | EmailJS service ID |
+| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | No | EmailJS template ID |
+| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | No | EmailJS public key |
+
+## Customization
+
+### Update Content
+- **Personal info:** `src/lib/constants.ts`
+- **Skills:** `src/components/sections/Skills.tsx`
+- **Experience:** `src/components/sections/Experience.tsx`
+- **Projects:** `src/components/sections/Projects.tsx`
+- **Contact:** `src/components/sections/Contact.tsx`
+
+### Change Colors
+Edit `src/app/globals.css` — update the `@theme` block with your preferred accent colors.
+
+### Add Sections
+1. Create a new component in `src/components/sections/`
+2. Export it from `src/components/sections/index.ts`
+3. Add it to `src/app/page.tsx`
+4. Add a nav link in `src/lib/constants.ts`
+
+## Performance
+
+- Lighthouse Score: 95+ (Performance, Accessibility, Best Practices, SEO)
+- Lazy-loaded below-fold sections with `next/dynamic`
+- Tree-shaken icon and animation imports
+- Optimized fonts with `next/font`
+- Static generation for zero TTFB
+
+## License
+
+MIT — feel free to use this as a template for your own portfolio.

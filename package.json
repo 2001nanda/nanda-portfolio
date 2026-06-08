@@ -1,14 +1,22 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
+  "name": "nandakumar-portfolio",
+  "version": "1.0.0",
   "private": true,
+  "description": "Modern developer portfolio for Nanda Kumar — .NET Full Stack Developer. Built with Next.js, React, TypeScript, Tailwind CSS, and Framer Motion.",
+  "author": "Nanda Kumar",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.17.0",
     "next": "16.2.7",
     "react": "19.2.4",
     "react-dom": "19.2.4"
@@ -22,5 +30,8 @@
     "eslint-config-next": "16.2.7",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.17.0"
   }
 }
