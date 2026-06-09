@@ -23,6 +23,9 @@ const Experience = dynamic(() => import("@/components/sections/Experience"), {
 const Projects = dynamic(() => import("@/components/sections/Projects"), {
   loading: () => <SectionSkeleton />,
 });
+const FeaturedProjects = dynamic(() => import("@/components/sections/FeaturedProjects"), {
+  loading: () => <SectionSkeleton />,
+});
 const GitHub = dynamic(() => import("@/components/sections/GitHub"), {
   loading: () => <SectionSkeleton />,
 });
@@ -57,6 +60,7 @@ export default function Home() {
         <Skills />
         <Experience />
         <Projects />
+        <FeaturedProjects />
         <GitHub />
         <Contact />
       </main>
