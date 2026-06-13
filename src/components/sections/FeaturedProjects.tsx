@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ExternalLink,
@@ -22,8 +21,10 @@ const sectionMetrics = [
   { value: "64+", label: "Automated Tests" },
 ];
 
+/* Tier 1 — Flagship */
 const flagshipProject = {
   title: "Enterprise Product Management API",
+  badge: "⭐ Featured Enterprise Project",
   description:
     "Production-ready REST API built with .NET 8 following Clean Architecture. Features secure JWT authentication, role-based authorization, comprehensive testing, structured logging, and containerized deployment — designed for scalability and maintainability.",
   metrics: [
@@ -36,6 +37,57 @@ const flagshipProject = {
   githubUrl: "https://github.com/NKumarCoder/product-api-assessment",
 };
 
+/* Tier 2 — Secondary Highlight */
+const secondaryHighlight = {
+  id: "badminton-tracker",
+  title: "Badminton Tracker",
+  badge: "🏸 Featured Personal Project",
+  description:
+    "A badminton match and performance tracking platform built to record games, monitor player statistics, track performance trends, and provide meaningful insights through data visualization.",
+  stack: ["Next.js", "TypeScript", "Tailwind CSS", "Data Visualization"],
+  liveUrl: "https://badminton-tracker-alpha.vercel.app/",
+  category: "Personal Innovation",
+  color: "emerald",
+};
+
+/* Tier 3 — Domain Expertise */
+interface DomainProject {
+  id: string;
+  title: string;
+  description: string;
+  stack: string[];
+  liveUrl?: string;
+  category: string;
+  color: string;
+  badge: string;
+}
+
+const domainProjects: DomainProject[] = [
+  {
+    id: "bus-booking",
+    title: "Bus Booking Platform",
+    description:
+      "Modern reservation system with route search, seat selection, booking confirmation, and responsive mobile-first design.",
+    stack: ["Next.js", "Tailwind CSS", "REST API"],
+    liveUrl: "https://bus-booking-platform.vercel.app/",
+    category: "Travel",
+    color: "orange",
+    badge: "Travel Domain Project",
+  },
+  {
+    id: "mit-travel",
+    title: "MIT Travel Platform",
+    description:
+      "Travel booking platform with real-time transportation search, booking management, and multi-modal journey planning.",
+    stack: ["React", "TypeScript", "API Integration"],
+    liveUrl: "https://mit-phi.vercel.app/home/bus",
+    category: "Travel",
+    color: "blue",
+    badge: "Travel Domain Project",
+  },
+];
+
+/* Tier 4 — Supporting */
 interface Project {
   id: string;
   title: string;
@@ -46,7 +98,7 @@ interface Project {
   color: string;
 }
 
-const projects: Project[] = [
+const supportingProjects: Project[] = [
   {
     id: "leave-attendance",
     title: "Leave & Attendance Tracker",
@@ -76,36 +128,6 @@ const projects: Project[] = [
     liveUrl: "https://scrap-invoice.vercel.app/",
     category: "AI-Assisted",
     color: "rose",
-  },
-  {
-    id: "mit-travel",
-    title: "MIT Travel Platform",
-    description:
-      "Travel booking platform with real-time transportation search, booking management, and multi-modal journey planning.",
-    stack: ["React", "TypeScript", "API Integration"],
-    liveUrl: "https://mit-phi.vercel.app/home/bus",
-    category: "Travel",
-    color: "blue",
-  },
-  {
-    id: "bus-booking",
-    title: "Bus Booking Platform",
-    description:
-      "Modern reservation system with route search, seat selection, booking confirmation, and responsive mobile-first design.",
-    stack: ["Next.js", "Tailwind CSS", "REST API"],
-    liveUrl: "https://bus-booking-platform.vercel.app/",
-    category: "Travel",
-    color: "orange",
-  },
-  {
-    id: "badminton-tracker",
-    title: "Badminton Tracker",
-    description:
-      "Sports performance app for recording matches, tracking player statistics, and visualizing improvement trends over time.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    liveUrl: "https://badminton-tracker-alpha.vercel.app/",
-    category: "Personal",
-    color: "emerald",
   },
 ];
 
@@ -151,7 +173,7 @@ function SectionHeader() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FLAGSHIP PROJECT
+   TIER 1 — FLAGSHIP PROJECT
    ═══════════════════════════════════════════════════════════════ */
 
 function FlagshipCard() {
@@ -199,7 +221,7 @@ function FlagshipCard() {
             <div className="absolute top-4 left-4">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary-400 bg-primary-500/10 border border-primary-500/20 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse" />
-                Featured
+                {flagshipProject.badge}
               </span>
             </div>
           </div>
@@ -255,30 +277,226 @@ function FlagshipCard() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROJECT CARD
+   TIER 2 — SECONDARY HIGHLIGHT (Badminton Tracker)
+   ═══════════════════════════════════════════════════════════════ */
+
+function SecondaryHighlightCard() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ y: -5 }}
+      className="group relative mb-14"
+    >
+      {/* Emerald glow behind card */}
+      <div className="absolute -inset-3 rounded-3xl bg-emerald-500/[0.05] blur-xl transition-all duration-500 group-hover:bg-emerald-500/[0.09]" />
+
+      {/* Card */}
+      <div className="relative rounded-2xl bg-[#111111] border border-emerald-500/[0.15] overflow-hidden transition-all duration-300 group-hover:border-emerald-500/30 group-hover:shadow-xl group-hover:shadow-emerald-500/[0.05]">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr]">
+          {/* Left — Content */}
+          <div className="p-8 lg:p-9 flex flex-col justify-center">
+            {/* Badge */}
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full self-start mb-4">
+              {secondaryHighlight.badge}
+            </span>
+
+            <h3 className="text-2xl lg:text-3xl font-bold text-white group-hover:text-emerald-300 transition-colors duration-300 mb-3 leading-tight">
+              {secondaryHighlight.title}
+            </h3>
+
+            <p className="text-[15px] md:text-base text-white/55 leading-relaxed mb-6">
+              {secondaryHighlight.description}
+            </p>
+
+            {/* Stack */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {secondaryHighlight.stack.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2.5 py-1 text-[11px] font-medium text-emerald-300/60 bg-emerald-500/[0.06] border border-emerald-500/[0.12] rounded-lg"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* CTA */}
+            {secondaryHighlight.liveUrl && (
+              <a
+                href={secondaryHighlight.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white/80 hover:text-white bg-emerald-500/[0.08] hover:bg-emerald-500/[0.15] border border-emerald-500/20 hover:border-emerald-500/35 rounded-xl transition-all duration-200 self-start"
+                aria-label={`View ${secondaryHighlight.title} live`}
+              >
+                <ExternalLink size={14} />
+                Live Demo
+                <ArrowUpRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+            )}
+          </div>
+
+          {/* Right — Visual emphasis */}
+          <div className="relative p-8 flex flex-col items-center justify-center bg-gradient-to-br from-emerald-500/[0.04] to-transparent border-t md:border-t-0 md:border-l border-white/[0.06]">
+            <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
+              <span className="text-3xl">🏸</span>
+            </div>
+            <p className="text-sm text-white/40 text-center max-w-[200px]">
+              Personal initiative showcasing product thinking & creativity
+            </p>
+            <div className="mt-4 grid grid-cols-2 gap-2 w-full max-w-[200px]">
+              <div className="px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-center">
+                <p className="text-xs font-bold text-white">Matches</p>
+                <p className="text-[10px] text-white/35 mt-0.5">Tracking</p>
+              </div>
+              <div className="px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-center">
+                <p className="text-xs font-bold text-white">Stats</p>
+                <p className="text-[10px] text-white/35 mt-0.5">Analytics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TIER 3 — DOMAIN EXPERTISE (Travel & Booking)
+   ═══════════════════════════════════════════════════════════════ */
+
+function DomainExpertiseSection() {
+  return (
+    <div className="mb-10">
+      {/* Group label */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+        className="flex items-center gap-3 mb-6"
+      >
+        <span className="text-lg font-semibold text-white/70">🚍 Travel & Booking Solutions</span>
+        <span className="flex-1 h-px bg-white/[0.06]" />
+        <span className="text-[11px] font-medium uppercase tracking-wider text-white/30">Domain Expertise</span>
+      </motion.div>
+
+      {/* Domain cards */}
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-5"
+      >
+        {domainProjects.map((project) => (
+          <DomainProjectCard key={project.id} project={project} />
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
+const domainColorMap: Record<string, string> = {
+  orange: "group-hover:border-orange-500/30 group-hover:shadow-orange-500/[0.06]",
+  blue: "group-hover:border-blue-500/30 group-hover:shadow-blue-500/[0.06]",
+};
+
+const domainBorderMap: Record<string, string> = {
+  orange: "border-l-orange-500/30",
+  blue: "border-l-blue-500/30",
+};
+
+const domainBadgeMap: Record<string, string> = {
+  orange: "text-orange-400 bg-orange-500/10 border-orange-500/20",
+  blue: "text-blue-400 bg-blue-500/10 border-blue-500/20",
+};
+
+function DomainProjectCard({ project }: { project: DomainProject }) {
+  return (
+    <motion.div
+      variants={staggerItem}
+      whileHover={{ y: -5 }}
+      transition={{ type: "spring", stiffness: 300, damping: 22 }}
+      className="group relative h-full"
+    >
+      <div
+        className={`relative h-full flex flex-col rounded-2xl bg-[#111111] border border-white/[0.08] border-l-2 ${domainBorderMap[project.color] || ""} overflow-hidden transition-all duration-300 group-hover:shadow-xl ${domainColorMap[project.color] || "group-hover:border-white/[0.15]"}`}
+      >
+        <div className="flex-1 flex flex-col p-6 md:p-7">
+          {/* Badge */}
+          <span
+            className={`inline-flex items-center gap-1 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider border rounded-full self-start mb-3 ${domainBadgeMap[project.color] || "text-white/40 bg-white/5 border-white/10"}`}
+          >
+            {project.badge}
+          </span>
+
+          {/* Title */}
+          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300 mb-3 leading-tight">
+            {project.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-[15px] md:text-base text-white/50 leading-relaxed mb-6 flex-1">
+            {project.description}
+          </p>
+
+          {/* Stack */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.stack.map((tech) => (
+              <span
+                key={tech}
+                className="px-2.5 py-0.5 text-[11px] font-medium text-white/40 bg-white/[0.03] border border-white/[0.06] rounded-md"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* CTA */}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/70 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] rounded-lg transition-all duration-200 self-start"
+              aria-label={`View ${project.title} live`}
+            >
+              <ExternalLink size={14} />
+              Live Demo
+              <ArrowUpRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TIER 4 — SUPPORTING PROJECT CARDS
    ═══════════════════════════════════════════════════════════════ */
 
 const colorMap: Record<string, string> = {
   cyan: "group-hover:border-cyan-500/30 group-hover:shadow-cyan-500/[0.05]",
   violet: "group-hover:border-violet-500/30 group-hover:shadow-violet-500/[0.05]",
   rose: "group-hover:border-rose-500/30 group-hover:shadow-rose-500/[0.05]",
-  blue: "group-hover:border-blue-500/30 group-hover:shadow-blue-500/[0.05]",
-  orange: "group-hover:border-orange-500/30 group-hover:shadow-orange-500/[0.05]",
-  emerald: "group-hover:border-emerald-500/30 group-hover:shadow-emerald-500/[0.05]",
 };
 
-function ProjectCardComponent({ project }: { project: Project }) {
+function SupportingProjectCard({ project }: { project: Project }) {
   return (
     <motion.div
       variants={staggerItem}
       whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 300, damping: 22 }}
-      className={`group relative h-full`}
+      className="group relative h-full"
     >
       <div
         className={`relative h-full flex flex-col rounded-2xl bg-[#111111] border border-white/[0.07] overflow-hidden transition-all duration-300 group-hover:shadow-xl ${colorMap[project.color] || "group-hover:border-white/[0.15]"}`}
       >
-        {/* Content */}
         <div className="flex-1 flex flex-col p-6 md:p-7">
           {/* Category */}
           <span className="inline-block self-start text-[11px] font-medium uppercase tracking-wider text-white/30 mb-3">
@@ -295,7 +513,7 @@ function ProjectCardComponent({ project }: { project: Project }) {
             {project.description}
           </p>
 
-          {/* Stack — compact */}
+          {/* Stack */}
           <div className="flex flex-wrap gap-2 mb-6">
             {project.stack.map((tech) => (
               <span
@@ -307,7 +525,7 @@ function ProjectCardComponent({ project }: { project: Project }) {
             ))}
           </div>
 
-          {/* CTA — more visible */}
+          {/* CTA */}
           {project.liveUrl && (
             <a
               href={project.liveUrl}
@@ -336,19 +554,25 @@ export default function FeaturedProjects() {
     <Section id="featured-projects">
       <SectionHeader />
 
-      {/* Flagship */}
+      {/* Tier 1 — Flagship */}
       <FlagshipCard />
 
-      {/* All other projects */}
+      {/* Tier 2 — Secondary Highlight */}
+      <SecondaryHighlightCard />
+
+      {/* Tier 3 — Domain Expertise */}
+      <DomainExpertiseSection />
+
+      {/* Tier 4 — Supporting Projects */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10"
       >
-        {projects.map((project) => (
-          <ProjectCardComponent key={project.id} project={project} />
+        {supportingProjects.map((project) => (
+          <SupportingProjectCard key={project.id} project={project} />
         ))}
       </motion.div>
     </Section>
