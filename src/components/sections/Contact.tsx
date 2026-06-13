@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Download } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { Section, SectionHeading, Button } from "@/components/ui";
 import { staggerContainer, staggerItem } from "@/lib/animations";
@@ -19,6 +19,18 @@ const contactInfo = [
     label: "Phone",
     value: "+91 96634 95417",
     href: "tel:+919663495417",
+  },
+  {
+    icon: GitHubIcon,
+    label: "GitHub",
+    value: "github.com/2001nanda",
+    href: "https://github.com/2001nanda",
+  },
+  {
+    icon: LinkedInIcon,
+    label: "LinkedIn",
+    value: "linkedin.com/in/nanda-kumar-m",
+    href: "https://www.linkedin.com/in/nanda-kumar-m-b7b372267/",
   },
   {
     icon: MapPin,
@@ -314,6 +326,18 @@ export default function Contact() {
                 </a>
               ))}
             </div>
+          </motion.div>
+
+          {/* Resume Download */}
+          <motion.div variants={staggerItem}>
+            <a
+              href="/resume.pdf"
+              download="Nanda_Kumar_Resume.pdf"
+              className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-primary-600 hover:bg-primary-500 text-white text-sm font-medium border border-primary-500/50 transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/20"
+            >
+              <Download size={16} />
+              Download Resume
+            </a>
           </motion.div>
 
           {/* Decorative message */}
