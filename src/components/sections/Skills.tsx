@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Layout, Database, Wrench } from "lucide-react";
+import { Code2, Database, Wrench, Layers, FlaskConical } from "lucide-react";
 import { Section, SectionHeading, Card, Badge } from "@/components/ui";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 
@@ -21,15 +21,7 @@ const skillCategories: SkillCategory[] = [
     color: "text-blue-400",
     borderColor: "border-blue-500/20",
     bgColor: "bg-blue-500/10",
-    skills: ["C#", ".NET", "ASP.NET MVC", "REST API"],
-  },
-  {
-    title: "Frontend",
-    icon: Layout,
-    color: "text-emerald-400",
-    borderColor: "border-emerald-500/20",
-    bgColor: "bg-emerald-500/10",
-    skills: ["HTML", "CSS", "JavaScript"],
+    skills: ["C#", ".NET", "ASP.NET MVC", "ASP.NET Core", ".NET 8", "REST APIs"],
   },
   {
     title: "Database",
@@ -37,15 +29,31 @@ const skillCategories: SkillCategory[] = [
     color: "text-purple-400",
     borderColor: "border-purple-500/20",
     bgColor: "bg-purple-500/10",
-    skills: ["PostgreSQL", "MongoDB"],
+    skills: ["PostgreSQL", "SQL Server", "MongoDB"],
   },
   {
-    title: "Tools",
+    title: "DevOps & Tools",
     icon: Wrench,
     color: "text-amber-400",
     borderColor: "border-amber-500/20",
     bgColor: "bg-amber-500/10",
-    skills: ["Git", "Postman", "Jenkins", "Visual Studio", "FileZilla"],
+    skills: ["Docker", "Jenkins", "Git", "Postman", "Visual Studio"],
+  },
+  {
+    title: "Architecture",
+    icon: Layers,
+    color: "text-emerald-400",
+    borderColor: "border-emerald-500/20",
+    bgColor: "bg-emerald-500/10",
+    skills: ["Clean Architecture", "Repository Pattern", "Unit of Work", "Dependency Injection"],
+  },
+  {
+    title: "Testing",
+    icon: FlaskConical,
+    color: "text-cyan-400",
+    borderColor: "border-cyan-500/20",
+    bgColor: "bg-cyan-500/10",
+    skills: ["Unit Testing", "Integration Testing", "xUnit"],
   },
 ];
 
@@ -54,7 +62,7 @@ export default function Skills() {
     <Section id="skills">
       <SectionHeading
         title="Skills & Technologies"
-        subtitle="Tools and technologies I use to bring ideas to life"
+        subtitle="Tools and technologies I use to build scalable backend systems"
       />
 
       <motion.div
@@ -62,7 +70,7 @@ export default function Skills() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto"
       >
         {skillCategories.map((category) => {
           const Icon = category.icon;

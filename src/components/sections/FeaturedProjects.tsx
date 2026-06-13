@@ -120,7 +120,7 @@ function SectionHeader() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6 }}
-      className="mb-20"
+      className="mb-16"
     >
       <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
         Featured Projects
@@ -206,11 +206,11 @@ function FlagshipCard() {
 
           {/* Right — Content */}
           <div className="p-8 lg:p-10 flex flex-col justify-center">
-            <h3 className="text-2xl lg:text-3xl font-bold text-white group-hover:text-primary-300 transition-colors duration-300 mb-4">
+            <h3 className="text-2xl lg:text-4xl font-bold text-white group-hover:text-primary-300 transition-colors duration-300 mb-4">
               {flagshipProject.title}
             </h3>
 
-            <p className="text-base text-white/50 leading-relaxed mb-6 max-w-xl">
+            <p className="text-base md:text-lg text-white/50 leading-relaxed mb-6 max-w-xl">
               {flagshipProject.description}
             </p>
 
@@ -271,7 +271,7 @@ function ProjectCardComponent({ project }: { project: Project }) {
   return (
     <motion.div
       variants={staggerItem}
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 300, damping: 22 }}
       className={`group relative h-full`}
     >
@@ -279,24 +279,24 @@ function ProjectCardComponent({ project }: { project: Project }) {
         className={`relative h-full flex flex-col rounded-2xl bg-[#111111] border border-white/[0.07] overflow-hidden transition-all duration-300 group-hover:shadow-xl ${colorMap[project.color] || "group-hover:border-white/[0.15]"}`}
       >
         {/* Content */}
-        <div className="flex-1 flex flex-col p-6">
+        <div className="flex-1 flex flex-col p-6 md:p-7">
           {/* Category */}
           <span className="inline-block self-start text-[11px] font-medium uppercase tracking-wider text-white/30 mb-3">
             {project.category}
           </span>
 
-          {/* Title — 40% larger */}
-          <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300 mb-3 leading-tight">
+          {/* Title */}
+          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300 mb-3 leading-tight">
             {project.title}
           </h3>
 
-          {/* Description — readable */}
-          <p className="text-[15px] text-white/45 leading-relaxed mb-6 flex-1">
+          {/* Description */}
+          <p className="text-[15px] md:text-base text-white/50 leading-relaxed mb-6 flex-1">
             {project.description}
           </p>
 
-          {/* Stack — only top 3 */}
-          <div className="flex flex-wrap gap-2 mb-5">
+          {/* Stack — compact */}
+          <div className="flex flex-wrap gap-2 mb-6">
             {project.stack.map((tech) => (
               <span
                 key={tech}
@@ -307,13 +307,13 @@ function ProjectCardComponent({ project }: { project: Project }) {
             ))}
           </div>
 
-          {/* CTA */}
+          {/* CTA — more visible */}
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-primary-400 transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/70 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] rounded-lg transition-all duration-200 self-start"
               aria-label={`View ${project.title} live`}
             >
               <ExternalLink size={14} />

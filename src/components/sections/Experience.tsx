@@ -20,18 +20,18 @@ const experiences: ExperienceItem[] = [
     id: "i2space",
     company: "i2Space",
     role: "Software Developer",
-    period: "April 2023 - Present",
+    period: "April 2023 – Present",
     description:
-      "Building enterprise-level travel and hospitality applications, integrating third-party APIs, and optimizing backend performance for high-traffic systems.",
+      "Developed and maintained backend services for travel booking platforms supporting real-time hotel, bus, and flight reservation workflows.",
     achievements: [
-      "Developed ASP.NET MVC backend applications for travel booking platforms",
-      "Integrated 15+ third-party travel APIs including GDS, hotel, and flight systems",
-      "Reduced backend response time by 30% through query optimization and caching strategies",
-      "Built scalable REST services handling thousands of concurrent requests",
-      "Resolved critical production issues with minimal downtime",
-      "Worked in Agile teams with daily standups, sprint planning, and code reviews",
+      "Integrated 15+ third-party travel APIs including bus, hotel, and flight providers to enhance platform capabilities and supplier connectivity",
+      "Designed and implemented scalable REST APIs and backend services using ASP.NET MVC and C#, handling high-concurrency booking traffic",
+      "Optimized database queries and backend workflows, reducing API response times by 30% and improving performance under high booking loads",
+      "Diagnosed and resolved production issues across distributed services, improving platform stability and reducing downtime",
+      "Collaborated with cross-functional teams in Agile environments to deliver new features, system improvements, and sprint commitments on time",
+      "Authored comprehensive unit and integration tests to maintain code quality across critical booking and payment pathways",
     ],
-    technologies: ["C#", "ASP.NET MVC", "REST API", "PostgreSQL", "JavaScript", "Git"],
+    technologies: ["C#", "ASP.NET MVC", ".NET", "REST API", "PostgreSQL", "SQL Server", "Git", "Docker"],
   },
 ];
 
@@ -40,7 +40,7 @@ export default function Experience() {
     <Section id="experience">
       <SectionHeading
         title="Experience"
-        subtitle="My professional journey building enterprise software"
+        subtitle="Building enterprise software with measurable impact"
       />
 
       <div className="max-w-4xl mx-auto">

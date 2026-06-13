@@ -11,6 +11,9 @@ import {
 import { Hero } from "@/components/sections";
 
 // Lazy load sections below the fold for performance
+const QuickFacts = dynamic(() => import("@/components/sections/QuickFacts"), {
+  loading: () => <SectionSkeleton />,
+});
 const About = dynamic(() => import("@/components/sections/About"), {
   loading: () => <SectionSkeleton />,
 });
@@ -24,6 +27,9 @@ const Projects = dynamic(() => import("@/components/sections/Projects"), {
   loading: () => <SectionSkeleton />,
 });
 const FeaturedProjects = dynamic(() => import("@/components/sections/FeaturedProjects"), {
+  loading: () => <SectionSkeleton />,
+});
+const EngineeringInterests = dynamic(() => import("@/components/sections/EngineeringInterests"), {
   loading: () => <SectionSkeleton />,
 });
 const GitHub = dynamic(() => import("@/components/sections/GitHub"), {
@@ -56,11 +62,13 @@ export default function Home() {
 
       <main role="main" className="relative w-full">
         <Hero />
+        <QuickFacts />
         <About />
         <Skills />
         <Experience />
         <Projects />
         <FeaturedProjects />
+        <EngineeringInterests />
         <GitHub />
         <Contact />
       </main>
